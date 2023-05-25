@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: jemimaht/nodeapp:latest
+        image: jemimaht/k8s-jenkins-aws:latest
         ports:
         - containerPort: 3000
