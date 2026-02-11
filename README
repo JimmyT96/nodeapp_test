@@ -1,5 +1,6 @@
 
-Node.js Express: Automated CI/CD on Amazon EKS Project Overview
+Node.js Express: Automated CI/CD on Amazon EKS
+Project Overview
 This repository features a Node.js 24 (LTS) Express application integrated with an automated Jenkins CI/CD pipeline. The workflow ensures that every code change is automatically built, containerized using optimized Docker images, and deployed to a scalable Amazon EKS cluster.
 
 Tech Stack
