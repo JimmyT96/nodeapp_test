@@ -1,0 +1,72 @@
+Node.js Express App: Jenkins CI/CD & Kubernetes
+This repository features a Node.js Express application integrated with a Jenkins CI/CD pipeline for automated containerization and Kubernetes orchestration.
+
+Tech Stack
+Runtime: Node.js
+
+Framework: Express.js
+
+CI/CD: Jenkins
+
+Containerization: Docker
+
+Orchestration: Kubernetes
+
+Deployment Instructions
+1. Local Setup
+To run the application directly on your machine:
+
+Bash
+
+npm install
+node index.js
+The app will be accessible at http://localhost:3000.
+
+2. Docker
+The dockerfile uses a node:slim base image to package the application.
+
+Bash
+
+# Build the image
+docker build -t nodeapp-test .
+
+# Run the container (Mapped to Internal Port 3000)
+docker run -p 3000:3000 nodeapp-test
+3. Jenkins CI/CD Pipeline
+The Jenkinsfile automates the full lifecycle:
+
+Build: Creates the Docker image.
+
+Push: Pushes the image to Docker Hub under jemimaht/k8s-jenkins-aws.
+
+Deploy: Automatically applies Kubernetes manifests.
+
+4. Kubernetes
+Deployment is managed via the included manifests:
+
+deployment.yml: Configures 1 replica and listens on port 3000.
+
+deploymentservice.yml: Exposes the app via a LoadBalancer on Port 5000.
+
+Manual Deployment Commands:
+
+Bash
+
+kubectl apply -f deployment.yml
+kubectl apply -f deploymentservice.yml
+
+ Repository Structure
+index.js: Express server logic with /, /will, and /ready endpoints.
+
+Jenkinsfile: Pipeline-as-code for automated deployment.
+
+dockerfile: Optimized Docker build instructions.
+
+deployment.yml: Kubernetes deployment manifest.
+
+package.json: Project dependencies (express, mocha, supertest).
+
+ Author
+Jimmy96 T.
+
+DevOps & Cloud Specialist
